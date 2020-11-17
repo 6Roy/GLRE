@@ -79,13 +79,13 @@ class DataLoader:
         self.ign_label = self.params['label2ignore']
         self.dataset = params['dataset']
         if params['dataset'] == "docred":
-            self.base_file = "./data/DocRED/processed/"
+            self.base_file = "../data/DocRED/processed/"
         else:
-            self.base_file = "./data/CDR/processed/"
+            self.base_file = "../data/CDR/processed/"
 
         self.entities_cor_id = None
         if self.params['emb_method']:
-            self.word2index = json.load(open(os.path.join(self.base_file, "word2id.json")))
+            self.word2index = json.load(open(os.path.join(self.base_file, "word2id.json"),'r', encoding='UTF-8'))
         else:
             self.word2index = json.load(open(os.path.join(self.base_file, "word2id_vec.json")))
         self.index2word = {v: k for k, v in self.word2index.items()}

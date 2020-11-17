@@ -198,6 +198,7 @@ class Trainer:
         self.acc_total.clear()
 
         self.model.train()
+        # 多个batch的数据
         train_iter = self.iterator(self.data['train'], batch_size=self.params['batch'],
                                    shuffle_=self.params['shuffle_data'])
 

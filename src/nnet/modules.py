@@ -36,13 +36,13 @@ class EmbedLayer(nn.Module):
 
         self.embedding_dim = embedding_dim
         self.num_embeddings = num_embeddings
-        self.freeze = freeze
+        self.freeze = freeze # 冻结某些层参数不训练
         self.ignore = ignore
 
         self.embedding = nn.Embedding(num_embeddings=num_embeddings,
                                       embedding_dim=embedding_dim,
                                       padding_idx=ignore)
-        self.embedding.weight.requires_grad = not freeze
+        self.embedding.weight.requires_grad = not freeze # 是否需要求导
 
         if pretrained:
             self.load_pretrained(pretrained, mapping)
@@ -59,6 +59,7 @@ class EmbedLayer(nn.Module):
         Returns: updates the embedding matrix with pre-trained embeddings
         """
         # if self.freeze:
+        # 把索引和词向量对应起来
         pret_embeds = torch.zeros((self.num_embeddings, self.embedding_dim))
         # else:
         # pret_embeds = nn.init.normal_(torch.empty((self.num_embeddings, self.embedding_dim)))

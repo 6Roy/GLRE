@@ -48,10 +48,10 @@ mlp_layers: 1
 mlp_dim: 512
 
 # data based
-train_data: ./data/DocRED/processed/train_annotated.data
-test_data: ./data/DocRED/processed/dev.data
-embeds: ./data/DocRED/glove_300d.txt
-folder: ./results/docred-dev
+train_data: ../data/DocRED/processed/train_annotated.data
+test_data: ../data/DocRED/processed/dev.data
+embeds: ../data/DocRED/glove_300d.txt
+folder: ../results/docred-dev
 save_pred: dev
 
 # options (chosen from parse input otherwise false)
